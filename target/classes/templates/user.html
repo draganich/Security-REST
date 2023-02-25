@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <title>User page</title>
+
+    <style>
+        .someDiv {
+            margin-top: 0.42%;
+            margin-left: 1.4%
+        }
+
+        .anotherDiv {
+            margin-top: -2.3%;
+            margin-left: 95%
+        }
+
+        .col-lg-2 {
+            margin-top: 1%;
+        }
+
+        .oneMoreDiv {
+            margin-top: 1.5%;
+            margin-left: 0.25%
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row bg-dark text-white">
+        <div class="someDiv">
+            <p><span th:text="${chosenUser.email}"></span> with roles: <span th:text="${chosenUser.roles}"></span></p>
+        </div>
+        <div class="anotherDiv" heruggu>
+            <form th:action="@{/logout}" th:method="POST">
+                <button class="btn btn-dark" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="bg-primary">
+                <form th:action="@{/user}">
+                    <button class="btn btn-primary btn-block" type="submit">User</button>
+                </form>
+            </div>
+            <div class="someDiv"></div>
+            <div>
+                <form onclick="history.back();">
+                    <button class="btn btn-outline-primary btn-block" type="button">Back</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-9 bg-light">
+            <h1>User information-page</h1>
+            <div class="oneMoreDiv">
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <h4>About user</h4>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <table class="table bg-white table-striped">
+                <caption class="border-start-0 border-light"></caption>
+                <thead class="thead table-group-divider">
+                <tr class="table-light font-weight-bold">
+                    <th scope="col">ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Roles</th>
+                </tr>
+                </thead>
+
+                <tbody id="userString"></tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/user.js}"></script>
+
+</body>
+</html>
